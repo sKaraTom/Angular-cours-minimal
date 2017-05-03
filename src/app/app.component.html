@@ -1,0 +1,56 @@
+
+
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" routerLink="/accueil">EasyAngular</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a routerLink="/accueil">Home</a></li>
+            <li><a routerLink="/cours">Liste des cours</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+
+<div class="container-fluid">
+<router-outlet ></router-outlet>
+</div>
+<!--
+<hr>
+
+
+<ul>
+    <li *ngFor= "let mot of listeMot" >
+        <div *ngIf= "mot=='mot1'; else elseBlock"> {{mot }}</div>
+      <ng-template #elseBlock>Alternate text while primary text is hidden</ng-template></li>
+</ul>
+
+
+<ul *ngFor= "let cours of courses" >
+    <li> <b>Cours</b></li>
+    <li style="list-style: none;"> {{cours.nom }}</li>
+    <li style="list-style: none;">{{cours.libelleEtablissement}}</li>
+    <li style="list-style: none;">{{cours.langage}}</li>
+    <li style="list-style: none;">{{cours.jours}}</li>
+    <li style="list-style: none;">{{cours.level}}</li>
+    <li style="list-style: none;">{{cours.description}}</li>
+    <li style="list-style: none;">{{cours.evaluation}}</li>
+</ul>
+
+<button (click)="toggle()">afficher</button>
+
+ <div *ngIf="estAffiche">
+<cours-liste></cours-liste>
+</div>
+-->

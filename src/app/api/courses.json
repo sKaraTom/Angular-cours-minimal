@@ -1,0 +1,26 @@
+[
+
+  {
+    "id":1,
+	"nom":"le Framework Angular 2",
+    "libelleEtablissement":"Doranco Bagnolet",
+    "langage":"Javascript, TypeScript",
+    "jours":3,
+    "level":"élevé",
+    "description":"(depuis l'API) Découvrir le célèbre framework de l'équipe Google ",
+    "evaluation":[5]
+
+  },
+  {
+    "id":2,
+	"nom":"Javascript",
+    "libelleEtablissement":"Doranco Nation",
+    "langage":"Javascript",
+    "jours":1,
+    "level":"moyen",
+    "description":"(depuis l'API) langage de programmation de scripts principalement employé dans les pages web interactives mais aussi pour les serveurs2 avec l'utilisation (par exemple) de Node.JS",
+    "evaluation":[4]
+  }
+
+
+]

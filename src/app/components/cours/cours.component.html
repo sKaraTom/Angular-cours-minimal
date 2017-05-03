@@ -1,0 +1,40 @@
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Liste des cours</h1>
+        <p>les cours à Doranco c'est trop la fête, alors voici la liste pour que t'en 
+            manques aucun !
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+    <p>{{recherche}}</p>
+
+    <div class="row">
+        filtrer par :  <input type="text" [(ngModel)]="recherche">
+    </div>
+
+
+<ul *ngFor= "let cours of listeCours  | coursFiltre:recherche" >
+
+    <li><a [routerLink]="['/cours',cours.id]" style="text-decoration: none;"><b>
+         {{cours.nom | uppercase }}</b></a></li>
+    <li style="list-style: none;">{{cours.libelleEtablissement}}</li>
+    <li style="list-style: none;">langage : {{cours.langage}}</li>
+    <li style="list-style: none;">nombre de jours : {{cours.jours}}</li>
+    <li style="list-style: none;">niveau du cours : {{cours.level}}</li>
+    <li style="list-style: none;">description : {{cours.description}}</li>
+    <li style="list-style: none;">évaluation : {{cours.evaluation}}</li>
+</ul>
+
+<!--
+<button md-fab><md-icon>check</md-icon></button>
+<button md-mini-fab><md-icon>check</md-icon></button>
+-->
+
+<p *ngIf="erreurHttp"> le subscribe a échoué mec. </p>
+<p *ngIf="!erreurHttp"> le subscribe a réussi dude. </p>
+
+
