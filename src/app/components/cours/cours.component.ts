@@ -21,6 +21,7 @@ export class CoursListeComponent implements OnInit {
     }
 
     ngOnInit(): void {
+       /*
         this.coursService.obtenirListeApi()
                         .subscribe(
                             liste => this.listeCours = liste,
@@ -29,12 +30,15 @@ export class CoursListeComponent implements OnInit {
                             console.log(this.cestFini);
                             console.log("c'est encore + fini !");}
                             );
-        /*
+        
         this.listeCours.forEach(function(cours) {
                     console.log(cours.nom + " - " + cours.libelleEtablissement)
         });
         */
-    
+        
+        this.coursService.obtenirListeServeur()
+                        .subscribe( liste => this.listeCours = liste,
+                        err => this.erreurHttp = err.status );
 
      }
 

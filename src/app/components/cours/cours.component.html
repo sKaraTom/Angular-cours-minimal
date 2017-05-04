@@ -20,11 +20,11 @@
 <ul *ngFor= "let cours of listeCours  | coursFiltre:recherche" >
 
     <li><a [routerLink]="['/cours',cours.id]" style="text-decoration: none;"><b>
-         {{cours.nom | uppercase }}</b></a></li>
+         {{cours.name | uppercase }}</b></a></li>
     <li style="list-style: none;">{{cours.libelleEtablissement}}</li>
-    <li style="list-style: none;">langage : {{cours.langage}}</li>
-    <li style="list-style: none;">nombre de jours : {{cours.jours}}</li>
-    <li style="list-style: none;">niveau du cours : {{cours.level}}</li>
+    <li style="list-style: none;">langage : {{cours.language}}</li>
+    <li style="list-style: none;">nombre de jours : {{cours.days}}</li>
+    <li style="list-style: none;">niveau du cours : {{cours.leval}}</li>
     <li style="list-style: none;">description : {{cours.description}}</li>
     <li style="list-style: none;">évaluation : {{cours.evaluation}}</li>
 </ul>

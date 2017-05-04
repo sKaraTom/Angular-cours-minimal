@@ -4,11 +4,11 @@
 export class Course {
 
     id:number;
-    nom:string;
+    name:string;
     libelleEtablissement:string;
-    langage:string;
-    jours:number;
-    level:string;    //niveau du cours (1 à 5)
+    language:string;
+    days:number;
+    leval:string;    //niveau du cours (1 à 5)
     description:string;
     evaluation:number[];
 

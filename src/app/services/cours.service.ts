@@ -8,7 +8,7 @@ import { Course } from "../objets-metiers/course";
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
-import { Observable } from "rxjs/Observable"
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class CoursService {
@@ -55,13 +55,12 @@ public obtenirlisteCours(): Course[] {
 
 }
 
+public obtenirListeServeur() : Observable<Course[]>{
+
+    return this.http.get("http://localhost:4000/courses")
+            .do(x => console.log(x))
+            .map(resultat => resultat.json());
+}
 
 
-
-/*
-  public attraperJson(): Observable<number> {
-
-            this.http.get
-        }
-*/
 }

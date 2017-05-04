@@ -1,0 +1,56 @@
+<h2>Nous contacter</h2>
+
+
+
+<form #form="ngForm" style="margin-left:auto;margin-right:auto; width:600px;"
+    (submit)="envoyerMessage(form)">
+
+<div class="input-group" [class.has-error]="email.invalid && email.touched">
+  <span class="input-group-addon" id="basic-addon1">@</span>
+  <input type="text" #email="ngModel" ngModel name="email" class="form-control" 
+        placeholder="email" aria-describedby="basic-addon1" required>
+</div>
+<br>
+<div class="input-group" [class.has-error]="prenom.invalid && prenom.touched">
+  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
+  <input type="text" #prenom="ngModel" ngModel name="prenom" class="form-control" placeholder="prenom" aria-describedby="basic-addon1" required>
+</div>
+ <span *ngIf="prenom.invalid && prenom.touched"> veuillez indiquer un prénom </span>
+<br>
+
+<div class="form-group" [class.has-error]="commentaire.invalid && commentaire.touched">
+  <label for="comment">votre commentaire</label>
+  <textarea class="form-control"  #commentaire="ngModel" ngModel name="commentaire" 
+  rows="5" id="comment" required autofocus></textarea>
+</div>
+<span *ngIf="commentaire.invalid && commentaire.touched"> si tu mets pas de commentaire ça sert à rien de m'écrire dude. </span>
+<br>
+
+<div class="form-group" [class.has-error]="selection.invalid && selection.touched">
+    <label for="service"> Service</label>
+    <select class="form-control" #selection="ngModel" ngModel name="service" required>
+        <option value="">   </option>
+        <option value="1">service 1</option>
+        <option value="2">service 2</option>
+        <option value="3">service 3</option>
+    </select>
+</div>
+<span *ngIf="selection.invalid && selection.touched"> faut choisir gars. </span>
+    
+    <div align="center">
+    <input class="btn btn-primary" type="submit"  [disabled] = "form.invalid" value="Valider">
+    </div>
+
+</form>
+
+
+<div class="alert alert-danger" role="alert" *ngIf="email.invalid && email.touched">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+   Entrez un email svp.
+</div>
+
+ <br>  
+<pre> Formulaire : {{form.value | json }}</pre>
+<pre> email : {{ email.valid }}</pre>
+<pre> prenom : {{ prenom.valid }}</pre>
