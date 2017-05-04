@@ -2,3 +2,60 @@
 
 
 <a  class="btn btn-info" (click)="goBack()"> Retour </a>
+
+
+
+<form #form="ngForm" style="margin-left:auto;margin-right:auto; width:600px;"
+    (submit)="confirmerModification(form)">
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">!</span>
+  <input type="text"  #name="ngModel" [(ngModel)]="cours.name" ngModel name="name" class="form-control" 
+        placeholder="name" aria-describedby="basic-addon1" >
+</div>
+<br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">!</span>
+  <input type="text" #libelle="ngModel" [(ngModel)]="cours.libelleEtablissement" ngModel name="libelleEtablissement" class="form-control" 
+        placeholder="libelleEtablissement" aria-describedby="basic-addon1">
+</div>
+<br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">!</span>
+  <input type="text" #language="ngModel" [(ngModel)]="cours.language" ngModel name="language" class="form-control" 
+        placeholder="language" aria-describedby="basic-addon1">
+</div>
+<br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">!</span>
+  <input type="text" #days="ngModel"  [(ngModel)]="cours.days" ngModel name="days" class="form-control" 
+        placeholder="days" aria-describedby="basic-addon1">
+</div>
+<br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">!</span>
+  <input type="text" #leval="ngModel"  [(ngModel)]="cours.leval" ngModel name="leval" class="form-control" 
+        placeholder="leval" aria-describedby="basic-addon1">
+</div>
+<br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">!</span>
+  <input type="text" #description="ngModel"  [(ngModel)]="cours.description" ngModel name="description" class="form-control" 
+        placeholder="description" aria-describedby="basic-addon1">
+</div>
+<br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">!</span>
+  <input type="text" #evaluation="ngModel"  [(ngModel)]="cours.evaluation" ngModel name="evaluation" class="form-control" 
+        placeholder="evaluation" aria-describedby="basic-addon1">
+</div>
+<br>
+
+    <div align="center">
+    <input class="btn btn-primary" type="submit"  [disabled] = "form.invalid" value="Valider">
+    </div>
+
+</form>
+
+
+<p> nom du cours modifié : {{coursModifie.name}} </p>

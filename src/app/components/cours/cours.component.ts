@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Course } from "../../objets-metiers/course";
 import { CoursService } from "../../services/cours.service";
+import { Message } from "primeng/primeng";
 
 @Component({
     moduleId:module.id,
@@ -14,10 +15,16 @@ export class CoursListeComponent implements OnInit {
     listeCours:Course[];
     erreurHttp : string;
 
+    coursParId:Course;
+    idCours:number;
+
+    msgs: Message[] = [];
+
 
     cestFini:string;
 
     constructor(private coursService:CoursService) {
+
     }
 
     ngOnInit(): void {
@@ -39,6 +46,9 @@ export class CoursListeComponent implements OnInit {
         this.coursService.obtenirListeServeur()
                         .subscribe( liste => this.listeCours = liste,
                         err => this.erreurHttp = err.status );
+       
+     
+
 
      }
 
@@ -52,6 +62,24 @@ export class CoursListeComponent implements OnInit {
 
          console.log("subscribe complet2");
      }
+
+     public obtenirCours(id:number) {
+          
+          this.coursService.obtenirCoursNode(id)
+                        .subscribe(res => this.coursParId = res,
+                        err =>  this.showError(),
+                        () => this.showSuccess());
+     }
+
+     showError() {
+        this.msgs = [];
+        this.msgs.push({severity:'error', summary:'cours inexistant', detail:'l\'id est peut-être erroné.'});
+    }
+
+    showSuccess() {
+        this.msgs = [];
+        this.msgs.push({severity:'success', summary:'Cours trouvé !', detail:'bien joué mec.'});
+    }
 
 
 }

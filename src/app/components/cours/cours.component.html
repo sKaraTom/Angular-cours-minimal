@@ -10,6 +10,31 @@
       </div>
     </div>
 
+    <div class="input-group">
+        <input type="text" name="rechercheId" class="form-control" 
+        placeholder="chercher cours" aria-describedby="basic-addon1" [(ngModel)]="idCours">
+    </div>
+    <br>
+     <p><a class="btn btn-primary" role="button" (click)=obtenirCours(idCours)>chercher un cours</a></p>
+
+ <div class="row" *ngIf="coursParId" >
+    <div class="col-lg-6" style="width:50px;padding=5px;"><img [src]="coursParId.image"></div>
+    <div align="left" class="col-lg-5" style="margin-left:20%;">
+        <ul style="border-style:groove; padding:5px;">
+            <label for="comment">id du cours recherché : {{coursParId.id}}</label>
+            <li style="list-style: none;"><a [routerLink]="['/cours',coursParId.id]" style="text-decoration: none;"><b>
+                {{coursParId.name | uppercase }}</b></a></li>
+            <li style="list-style: none;">{{coursParId.libelleEtablissement}}</li>
+            <li style="list-style: none;">langage : {{coursParId.language}}</li>
+            <li style="list-style: none;">nombre de jours : {{coursParId.days}}</li>
+            <li style="list-style: none;">niveau du cours : {{coursParId.leval}}</li>
+            <li style="list-style: none;">description : {{coursParId.description}}</li>
+            <li style="list-style: none;">évaluation : {{coursParId.evaluation}}</li>
+        </ul>
+    </div>
+</div>
+
+<hr>
     <p>{{recherche}}</p>
 
     <div class="row">
@@ -20,7 +45,7 @@
 <ul *ngFor= "let cours of listeCours  | coursFiltre:recherche" >
 
     <li><a [routerLink]="['/cours',cours.id]" style="text-decoration: none;"><b>
-         {{cours.name | uppercase }}</b></a></li>
+         {{cours.name | uppercase }}</b> <img src="{{cours.image}}" style="width:50px;"></a></li>
     <li style="list-style: none;">{{cours.libelleEtablissement}}</li>
     <li style="list-style: none;">langage : {{cours.language}}</li>
     <li style="list-style: none;">nombre de jours : {{cours.days}}</li>
@@ -38,3 +63,4 @@
 <p *ngIf="!erreurHttp"> le subscribe a réussi dude. </p>
 
 
+<p-growl [value]="msgs" sticky="sticky"></p-growl>

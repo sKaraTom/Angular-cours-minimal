@@ -16,6 +16,7 @@ import { ContactModule } from "./components/contact/contact.module";
 import { ContactComponent } from "./components/contact/contact.component";
 
 
+
 const routes : Routes = [
   { path: 'accueil', component: HomeComponent },
   { path: 'cours', component: CoursListeComponent },

@@ -13,9 +13,9 @@ export class CoursFiltrePipe implements PipeTransform {
             if(recherche !='') {
             let result =
              value.filter((cours:Course) => cours.description.toLowerCase().includes(recherche)
-             || cours.nom.toLowerCase().includes(recherche)
+             || cours.name.toLowerCase().includes(recherche)
              || cours.libelleEtablissement.toLowerCase().includes(recherche)
-             || cours.nom.toLowerCase().includes(recherche));
+             || cours.language.toLowerCase().includes(recherche));
              return result;
              } else {
                  return value;

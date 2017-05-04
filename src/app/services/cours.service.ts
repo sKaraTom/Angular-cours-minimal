@@ -58,9 +58,19 @@ public obtenirlisteCours(): Course[] {
 public obtenirListeServeur() : Observable<Course[]>{
 
     return this.http.get("http://localhost:4000/courses")
-            .do(x => console.log(x))
             .map(resultat => resultat.json());
 }
+
+
+public obtenirCoursNode(id:number) : Observable<Course> {
+    const url = "http://localhost:4000/courseById/" + id;
+    console.log("l'url :" + url);
+
+    return this.http.get(url)
+            .map(resultat => resultat.json());
+}
+
+
 
 
 }
